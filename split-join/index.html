@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>Split or Join Tool</title>
+    <!-- DataTables -->
+    <link href="./plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="./plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <!-- Responsive datatable examples -->
+    <link href="./plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="./Scripts/list-tool.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+  <div class="wrapper">
+        <div style="text-align: center; margin-bottom: 5px;" class="hide-mobile">
+            
+        </div>
+    </div>
+
+        <div class="container-fluid">
+
+            <div class="page-title-box" style="margin-top: -55px;">
+              
+               <div class="col-sm-6">
+            </div>
+         </div>
+         <!-- end row -->
+    
+            <div class="col-12">
+              <div class="card"><div class="card-body">
+                  
+
+                <div class="row">
+                          
+                            <table width="100%" border="0" cellpadding="2" cellspacing="1" class="box-grey" style=" margin-left: 100px; ">
+                                <tbody><tr>
+
+                                    <td width="70%" colspan="2">
+                                        <br>
+                                        <textarea id="txtList" rows="8" class="form-control" placeholder="Paste your combo here.." style="width: 100%; resize:none" name="txtList"></textarea>
+                                    </td>
+                                    <td width="30%" align="center">
+
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                <b>Split with devider:</b><br><br>
+                                                <input type="textbox" class="form-control" id="txtSep" value=":" style="width: 50px" name="txtSep">
+                                                
+                                                <br>
+                                                <input type="button" class="btn btn-primary" value="Split Combos" onclick="split();" id="btnSplit">
+                                            </div>
+                                        </div>
+
+                        
+                    
+
+                    </td>
+                    </tr>
+                    <tr>
+
+                        <td width="35%">
+                            <br>
+                            <textarea id="txtOut1" rows="8" class="form-control" placeholder="Left side" style="width: 100%; resize:none" name="txtOut1"></textarea>
+                        </td>
+                        <td width="35%">
+                            <br>
+                            <textarea id="txtOut2" rows="8" class="form-control" placeholder="Right side" style="width: 100%; resize:none" name="txtOut2"></textarea>
+                        </td>
+                        <td align="center">
+                            <br>
+                            <div class="panel panel-primary">
+                                <b>Combine with devider:</b><br><br>
+                                <input type="textbox" class="form-control" id="txtSepC" value=":" style="width: 50px;" name="txtSepC">
+                                <br>
+                            </div>
+                            <center>
+                                <input type="button" class="btn btn-primary" value="Left : Right" onclick="combine(0);" id="btnCombineLR">&nbsp; &nbsp; &nbsp;
+                                <input type="button" class="btn btn-primary" value="Right : Left" onclick="combine(1);" id="btnCombineRL">
+            
+
+        
+    
+    </center></td>
+    </tr>
+    </tbody></table><br>
+    
+
+    </div>
+
+    <!-- end row -->
+</div>
+
+
+</div>
+<div class="row">
+       
+
+    
+
+
+
+
+   
+    
+</div>
+         <!-- end row -->
+      </div>
+      
+    
+</div
+      <!-- end container-fluid -->
+   </div>
+   <!-- page wrapper end -->
+   <!-- jQuery  -->
+   <script type="text/javascript">
+        $(document).ready(function () {
+            $('.select2-basic-search').select2({ width: '100%', theme: "bootstrap" });
+            $('.select2-basic-search').on("select2:close", function (e) { $(this).valid(); });
+            $('.select2-basic').select2({ minimumResultsForSearch: -1, width: '100%', theme: "bootstrap" });
+            $('.select2-basic').on("select2:close", function (e) {
+                try {
+                    $(this).valid();
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+
+            //$('.datepicker-here').prop('readonly', true);
+            //$('.datepicker-here').datepicker({ autoClose: true });
+
+            $(function () {
+                $('table .table').on('all.bs.table', function (e, name, args) {
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $('[data-toggle="popover"]').popover();
+                });
+            });
+        });
+    </script>
+
+   <script src="./assets/js/jquery.min.js"></script>
+   <script src="./assets/js/bootstrap.bundle.min.js"></script>
+   <script src="./assets/js/jquery.slimscroll.js"></script>
+   <script src="./assets/js/waves.min.js"></script>
+   <!-- App js -->
+   <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

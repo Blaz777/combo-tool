@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>Remove Duplicates Tool</title>
+    <!-- DataTables -->
+    <link href="./plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="./plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <!-- Responsive datatable examples -->
+    <link href="./plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  
+
+  <div class="wrapper">
+        <div style="text-align: center; margin-bottom: 5px;" class="hide-mobile">
+            
+        </div>
+    </div>
+
+        <div class="container-fluid">
+            <div class="row">
+    <div class="col-12">
+        
+    </div>
+</div>
+
+            <div class="page-title-box" style="margin-top: -55px;">
+         <div class="page-title-box">
+         </div>
+         <!-- end row -->
+         <div class="row">
+
+                <div class="col-12">
+                  <div class="card"><div class="card-body">
+
+                        <h4 id="linesremoved"></h4>
+                        <div class="form-group">
+                            <textarea id="inputtext" class="form-control" placeholder="Paste your combo here.." style="margin-top: 0px; margin-bottom: 24px; height: 200px;"></textarea>
+                        </div>
+                        <center>
+                            <div class="options">
+                                <button type="submit" onclick="starttool()" class="btn btn-primary">Remove Duplicates </button>
+                                <br>
+                                <br>
+                                <input type="checkbox" id="c1">
+                                <label for="c1" style="margin-right: 4px;">Case sensitive</label>
+
+                            </div>
+                    </center></div>
+
+    <!-- end row -->
+</div>
+
+<div class="row">
+                <div class="col-12">
+     
+    </div>
+
+    
+</div
+
+</div></div></div></div>
+
+
+
+   
+    
+</div>
+         <!-- end row -->
+         
+
+    
+</div
+      </div>
+      <!-- end container-fluid -->
+   </div>
+   <!-- page wrapper end -->
+   <!-- jQuery  -->
+   <script type="text/javascript">
+                    function starttool() {
+                        var counted = 0;
+                        var lines = $('#inputtext').val().split('\n');
+                        var uniquelines = [];
+                        if (document.getElementById("c1").checked) {
+                            $.each(lines, function(i, el) {
+                                if ($.inArray(el, uniquelines) === -1) {
+                                    uniquelines.push(el);
+                                } else {
+                                    counted++;
+                                }
+                            });
+                        } else {
+                            var temp = [];
+                            $.each(lines, function(i, el) {
+                                if ($.inArray(el.toLowerCase(), temp) === -1) {
+                                    uniquelines.push(el);
+                                    temp.push(el.toLowerCase());
+                                } else {
+                                    counted++;
+                                }
+                            });
+                        }
+                        document.getElementById("linesremoved").innerHTML = counted + " line(s) removed";
+                        var textarea = document.getElementById("inputtext");
+                        textarea.value = uniquelines.join("\n");
+                    }
+
+                   
+                </script>
+
+   <script src="./assets/js/jquery.min.js"></script>
+   <script src="./assets/js/bootstrap.bundle.min.js"></script>
+   <script src="./assets/js/jquery.slimscroll.js"></script>
+   <script src="./assets/js/waves.min.js"></script>
+   <!-- App js -->
+   <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
